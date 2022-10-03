@@ -1,3 +1,4 @@
+import 'package:Hungitify/Screen/CartList.dart';
 import 'package:Hungitify/Screen/Category.dart';
 import 'package:Hungitify/Screen/ChangePassword.dart';
 import 'package:Hungitify/Screen/Favourites.dart';
@@ -51,6 +52,8 @@ Route? generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => MyOrder());
     case '/changepassword':
       return MaterialPageRoute(builder: (_) => ChangePassword());
+    case '/cartlist':
+      return MaterialPageRoute(builder: (_) => CartList());
 
     default:
       return null;

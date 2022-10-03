@@ -254,8 +254,16 @@ class _MyProfileState extends State<MyProfile> {
                         CustomNavigator().navigateTo(
                             context: context, routeName: '/category');
                       },
-                      leading: Icon(Icons.account_circle_rounded),
+                      leading: Icon(Icons.auto_awesome_mosaic_rounded),
                       title: Text('Categories'),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        CustomNavigator().navigateTo(
+                            context: context, routeName: '/cartlist');
+                      },
+                      leading: Icon(Icons.shopping_cart_rounded),
+                      title: Text('Cart List'),
                     ),
                     ListTile(
                       onTap: () {
@@ -278,7 +286,7 @@ class _MyProfileState extends State<MyProfile> {
                         CustomNavigator()
                             .navigateTo(context: context, routeName: '/login');
                       },
-                      leading: Icon(Icons.settings),
+                      leading: Icon(Icons.logout),
                       title: Text('Logout'),
                     ),
                     Spacer(),

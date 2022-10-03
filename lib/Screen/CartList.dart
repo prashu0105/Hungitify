@@ -1,21 +1,22 @@
-import 'package:Hungitify/CommanLib/Navigator.dart';
 import 'package:Hungitify/CommanLib/Theme.dart';
-import 'package:Hungitify/Screen/Home.dart';
-import 'package:Hungitify/Screen/Profile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 
-class Category extends StatefulWidget {
-  Category({Key? key}) : super(key: key);
+import '../CommanLib/Navigator.dart';
+
+class CartList extends StatefulWidget {
+  CartList({Key? key}) : super(key: key);
 
   @override
-  State<Category> createState() => _CategoryState();
+  State<CartList> createState() => _CartListState();
 }
 
-class _CategoryState extends State<Category> {
-  var h, w;
+class _CartListState extends State<CartList> {
   final _advancedDrawerController = AdvancedDrawerController();
+  var selectedIndex = 0;
+  DateTime? currentBackPressTime;
+  List Pages = [];
+
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
@@ -49,7 +50,7 @@ class _CategoryState extends State<Category> {
               backgroundColor: HungitColor.HungitYellow,
               centerTitle: true,
               title: const Text(
-                'Category',
+                'Cart List',
                 style: HungitStyle.HungitSubHeadTextBlack,
               ),
               leading: IconButton(
@@ -69,69 +70,13 @@ class _CategoryState extends State<Category> {
               ),
             ),
             body: Container(
-                height: h * 0.9,
-                width: w,
-                color: HungitColor.HungitCreme,
-                child: ListWheelScrollView.useDelegate(
-                    itemExtent: h * 0.4,
-                    childDelegate: ListWheelChildBuilderDelegate(
-                        builder: (context, index) {
-                      return Container(
-                        // color: Colors.purple,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                          image: AssetImage("assets/images/Category.jpeg"),
-                          fit: BoxFit.contain,
-                          opacity: 0.7,
-                        )),
-                        child: Center(
-                          child: Text(
-                            "FAST FOOD",
-                            style: HungitStyle.HungitHeadTextBlack,
-                          ),
-                        ),
-                      );
-                    }))
-                // child: ListWheelScrollView(
-                //     clipBehavior: Clip.hardEdge,
-                //     squeeze: 0.9,
-                //     itemExtent: h * 0.3,
-                //     children: [
-                //       Container(
-                //         color: Colors.red,
-                //       ),
-                //       Container(
-                //         color: Colors.blue,
-                //       ),
-                //       Container(
-                //         color: Colors.green,
-                //       ),
-                //       Container(
-                //         color: Colors.grey,
-                //       ),
-                //       Container(
-                //         color: Colors.deepPurple,
-                //       ),
-                //       Container(
-                //         color: Colors.cyan,
-                //       ),
-                //       Container(
-                //         color: Colors.lime,
-                //       ),
-                //       Container(
-                //         color: Colors.indigo,
-                //       ),
-                //       Container(
-                //         color: Colors.deepOrange,
-                //       ),
-                //       Container(
-                //         color: Colors.blueGrey,
-                //       ),
-                //       Container(
-                //         color: Colors.amber,
-                //       ),
-                //     ])
-                ),
+              height: h * 0.9,
+              width: w,
+              color: HungitColor.HungitCreme,
+              child: Column(
+                children: [],
+              ),
+            ),
           ),
           drawer: SafeArea(
             child: Container(
